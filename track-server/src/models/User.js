@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+// salting our hash password
 userSchema.pre('save', function(next) {
   const user = this;
   if (!user.isModified('password')) {
@@ -33,6 +34,7 @@ userSchema.pre('save', function(next) {
     });
   });
 });
+
 
 userSchema.methods.comparePassword = function(candidatePassword) {
   const user = this;
