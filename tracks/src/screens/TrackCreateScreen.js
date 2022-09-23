@@ -31,6 +31,10 @@ const TrackCreateScreen = ({ isFocused }) => {
   );
 };
 
+TrackCreateScreen.navigationOptions = {
+  title: "Add Track"
+}
+
 const styles = StyleSheet.create({});
 
 export default withNavigationFocus(TrackCreateScreen);

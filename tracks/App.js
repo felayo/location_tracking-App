@@ -1,6 +1,7 @@
 import React from "react";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { Provider as LocationProvider } from "./src/context/LocationContext";
+import { Provider as TrackProvider } from "./src/context/TrackContext";
 
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
@@ -36,14 +37,16 @@ const App = createAppContainer(switchNavigator);
 
 export default () => {
   return (
-    <LocationProvider>
-      <AuthProvider>
-        <App
-          ref={(navigator) => {
-            setNavigator(navigator);
-          }}
-        />
-      </AuthProvider>
-    </LocationProvider>
+    <TrackProvider>
+      <LocationProvider>
+        <AuthProvider>
+          <App
+            ref={(navigator) => {
+              setNavigator(navigator);
+            }}
+          />
+        </AuthProvider>
+      </LocationProvider>
+    </TrackProvider>
   );
 };
